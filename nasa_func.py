@@ -2,6 +2,8 @@
 from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
+import io
+
 
 # --- Functions ---
 def get_nasa_image(type):
@@ -23,15 +25,17 @@ def get_nasa_image(type):
         "CRS": "EPSG:4326",
         "WIDTH": "1920",
         "HEIGHT": "1080",
-        "BBOX": "30, -10, 70, 60", 
-        "TIME": today
+        "BBOX": "30, -10, 70, 60",
+        "TIME": today,
     }
-    resp = requests.get("https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi?", params=args)
+    resp = requests.get(
+        "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi?", params=args
+    )
     if resp.status_code == 200:
-        with open("nasa_wallpaper.jpg", "wb") as f:
-            f.write(resp.content)
-        return "nasa_wallpaper.jpg"
-    else: 
+        b = io.BytesIO(resp.content)
+        b.seek(0)
+        return b
+    else:
         return None
 
 

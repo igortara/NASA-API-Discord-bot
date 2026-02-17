@@ -14,7 +14,7 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 bot = commands.Bot(command_prefix="!", intents = discord.Intents.all())
 today = None
 # -- NASA satelite image for today function --
-@bot.command()
+@bot.command(name="nasa_sat", description="Fetches the NASA satellite image for today.")
 async def nasa_sat(ctx):
     today = datetime.datetime.now().strftime("%Y-%m-%d")
     image_url = nasa_func.get_nasa_image(type="TrueColor")
@@ -26,7 +26,7 @@ async def nasa_sat(ctx):
     await ctx.send(embed=embded , file=discord.File(image_url))
     os.remove("nasa_wallpaper.jpg")
 # -- NASA FIRMS image for today function --
-@bot.command()
+@bot.command(name="fires", description="Fetches the NASA FIRMS image for today.")
 async def fires(ctx):
     today = datetime.datetime.now().strftime("%Y-%m-%d")
     image_url = nasa_func.get_nasa_image(type="FIRMS")
@@ -38,16 +38,17 @@ async def fires(ctx):
     await ctx.send(embed=embded , file=discord.File(image_url))
     os.remove("nasa_wallpaper.jpg")   
 # -- Help function --
-@bot.command()
+@bot.command(name="helpme", description="Displays help information.")
 async def helpme(ctx):
     help_text = """
     **!nasa_sat** - Fetches the NASA satellite image for today.
+    **!fires** - Fetches the NASA FIRMS image for today.
     **!apod** - Fetches the Astronomy Picture of the Day (APOD) image for today.
     **!helpme** - Displays this help message.
     """
     await ctx.send(help_text)
 # -- NASA APOD image for today function --
-@bot.command()
+@bot.command(name="apod", description="Fetches the Astronomy Picture of the Day (APOD) image for today.")
 async def apod(ctx):
     embed = discord.Embed(title="NASA APOD", description="Here is today's Astronomy Picture of the Day (APOD)!", color=0x0035a9)
     image_url = nasa_func.get_apod_image()

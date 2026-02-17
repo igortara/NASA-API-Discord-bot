@@ -4,7 +4,7 @@
 import nasa_func
 import os
 import discord
-from discord.ext import commands 
+from discord.ext import commands
 from dotenv import load_dotenv
 import datetime
 load_dotenv()
@@ -55,7 +55,9 @@ async def apod(ctx):
     if image_url is not None:
         embed.set_image(url=image_url)
         await ctx.send(embed=embed)
-
+@bot.command(name="ping", description="Checks if the bot is responsive.")
+async def ping(ctx):
+    await ctx.send("Pong🏓!")
 # -- Run the bot --
 if __name__ == "__main__":
     bot.run(BOT_TOKEN)

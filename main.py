@@ -80,6 +80,7 @@ async def helpme(interaction: discord.Interaction):
     description="Fetches the Astronomy Picture of the Day (APOD) image for today.",
 )
 async def apod(interaction: discord.Interaction):
+    await interaction.response.defer()
     embed = discord.Embed(
         title="NASA APOD",
         description="Here is today's Astronomy Picture of the Day (APOD)!",

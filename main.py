@@ -88,7 +88,13 @@ async def apod(interaction: discord.Interaction):
     image_url = nasa_func.get_apod_image()
     if image_url is not None:
         embed.set_image(url=image_url)
-        await interaction.response.send_message(embed=embed)
+        await interaction.followup.send(embed=embed)
+    else:
+        await interaction.followup.send(
+            "Sorry, I couldn't fetch the APOD image for today."
+        )
+
+
 
 
 @bot.tree.command(name="ping", description="Checks if the bot is responsive.")

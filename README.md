@@ -56,6 +56,11 @@ python main.py
 - [main.py](main.py) — Discord bot commands and runner.
 - [nasa_func.py](nasa_func.py) — Image fetching helpers.
 
-**License & Credits**
-This is a small personal utility script. Use and adapt as you like; credit the original author if you publish derivative work.
+## License
+This project is licensed under the **GNU General Public License v3.0 (GPL-3.0)**. 
+Basically, you can do what you want as long as you keep it open source and give credit. 
+See the [LICENSE](LICENSE) file for more details.
 
+**Credits**
+- NASA GIBS / FIRMS APIs for the amazing satellite data.
+- Built by Feliks with 🐧 and Python.

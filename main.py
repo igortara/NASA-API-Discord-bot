@@ -1,6 +1,7 @@
-# -- NASA API Bot by Feliks --
-# ----------------------------
-# -- Imports --
+# Copyright (C) 2026 Feliks
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License.
 import nasa_func
 import os
 import discord
